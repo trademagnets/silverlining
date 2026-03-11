@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silver Lining Dental Clinic | Gentle, expert dental care</title>
+  <!-- Tailwind + Fonts + Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1A5276;
+      --teal: #148F77;
+      --sky: #D6EAF8;
+      --lightgray: #F2F3F4;
+      --charcoal: #1C2833;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--charcoal); background-color: white; }
+    .bg-navy { background-color: var(--navy); }
+    .bg-teal { background-color: var(--teal); }
+    .bg-sky { background-color: var(--sky); }
+    .bg-lightgray { background-color: var(--lightgray); }
+    .text-navy { color: var(--navy); }
+    .text-teal { color: var(--teal); }
+    .btn-primary { background-color: var(--teal); color: white; padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; transition: all 0.2s; }
+    .btn-primary:hover { background-color: #0f6b58; }
+    .btn-outline { border: 2px solid var(--teal); color: var(--teal); padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; }
+    .btn-outline:hover { background-color: var(--teal); color: white; }
+    .btn-light { background-color: white; color: var(--navy); padding: 0.75rem 2rem; border-radius: 9999px; font-weight: 600; border: 1px solid var(--teal); }
+    .btn-light:hover { background-color: var(--teal); color: white; border-color: var(--teal); }
+    /* Modal overlay */
+    #bookingModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #bookingModal.show { display: flex; }
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .close-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+    .floating-wa {
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 100;
+      transition: transform 0.2s;
+    }
+    .floating-wa:hover {
+      transform: scale(1.1);
+      background: #20b859;
+    }
+    @media (max-width: 768px) {
+      .floating-wa { bottom: 80px; }
+    }
+    .map-link {
+      display: inline-block;
+      margin-top: 0.75rem;
+      color: var(--teal);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+    .map-link:hover { color: #0f6b58; }
+    /* Icons distinguishable */
+    .feature-icon { color: var(--teal); }
+  </style>
+</head>
+<body class="bg-white">
+
+  <!-- Sticky Header (light) with full clinic name - NO call icon -->
+  <header class="sticky top-0 z-50 bg-white shadow-md py-3 px-4 md:px-8 flex items-center justify-between">
+    <div class="text-2xl font-bold text-navy">Silver Lining<span class="text-teal"> Dental Clinic</span></div>
+    <nav class="hidden md:flex space-x-6 text-navy font-medium">
+      <a href="#" class="hover:text-teal">Home</a>
+      <a href="#" class="hover:text-teal">About</a>
+      <a href="#" class="hover:text-teal">Services</a>
+      <a href="#" class="hover:text-teal">Contact</a>
+    </nav>
+    <div class="flex items-center space-x-4">
+      <!-- Phone icon removed from header -->
+      <button class="btn-primary text-sm md:text-base book-appointment-btn">Book Appointment</button>
+      <button class="block md:hidden text-navy text-2xl"><i class="fas fa-bars"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with light gradient -->
+    <section class="relative bg-gradient-to-br from-sky to-white py-16 md:py-24 px-4 md:px-8 overflow-hidden">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <div data-aos="fade-right" data-aos-duration="1000" class="space-y-6">
+          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight">Your Healthiest Smile <span class="text-teal">Starts Here</span></h1>
+          <p class="text-lg md:text-xl text-gray-700">Gentle, expert dental care in Jammu. Same‑day emergency appointments & family‑friendly environment.</p>
+          <div class="flex flex-wrap gap-4">
+            <!-- Book Now button -->
+            <button class="btn-primary text-base book-appointment-btn">Book Now</button>
+            <!-- Call Now button with text -->
+            <a href="tel:+917889660188" class="btn-outline text-base"><i class="fas fa-phone-alt mr-2"></i>Call Now</a>
+          </div>
+          <!-- Trust badges -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
+            <div class="text-center"><div class="text-2xl font-bold text-navy">15+</div><div class="text-sm text-gray-600">Years Experience</div></div>
+            <div class="text-center"><div class="text-2xl font-bold text-navy">5k+</div><div class="text-sm text-gray-600">Happy Patients</div></div>
+            <div class="text-center"><div class="text-2xl font-bold text-navy">4.9</div><div class="text-sm text-gray-600"><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star-half-alt text-yellow-400"></i> 200+ reviews</div></div>
+            <div class="text-center"><div class="text-2xl font-bold text-navy">⭐</div><div class="text-sm text-gray-600">Top Dentist 2024</div></div>
+          </div>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="1000" class="relative h-80 md:h-auto">
+          <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Happy patient with dentist" class="rounded-2xl shadow-2xl object-cover w-full h-full">
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Snapshot (light) -->
+    <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Comprehensive Care for Your Smile</h2>
+      <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">From routine check‑ups to complete smile makeovers – we offer a full range of dental services.</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- service cards with teal icons -->
+        <div class="bg-white rounded-xl shadow-md p-6 text-center border-t-4 border-teal hover:shadow-lg transition">
+          <div class="text-4xl text-teal mb-3"><i class="fas fa-tooth"></i></div>
+          <h3 class="font-bold text-lg text-navy">General Dentistry</h3>
+          <p class="text-sm text-gray-600 mt-2">Check‑ups, cleanings, fillings</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 text-center border-t-4 border-teal hover:shadow-lg transition">
+          <div class="text-4xl text-teal mb-3"><i class="fas fa-smile"></i></div>
+          <h3 class="font-bold text-lg text-navy">Cosmetic Dentistry</h3>
+          <p class="text-sm text-gray-600 mt-2">Whitening, veneers, smile makeovers</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 text-center border-t-4 border-teal hover:shadow-lg transition">
+          <div class="text-4xl text-teal mb-3"><i class="fas fa-teeth"></i></div>
+          <h3 class="font-bold text-lg text-navy">Orthodontics</h3>
+          <p class="text-sm text-gray-600 mt-2">Invisalign, braces</p>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 text-center border-t-4 border-teal hover:shadow-lg transition">
+          <div class="text-4xl text-teal mb-3"><i class="fas fa-bolt"></i></div>
+          <h3 class="font-bold text-lg text-navy">Emergency Care</h3>
+          <p class="text-sm text-gray-600 mt-2">Same‑day appointments</p>
+        </div>
+      </div>
+      <div class="text-center mt-10">
+        <a href="#" class="inline-block text-teal font-semibold hover:underline">View All Services <i class="fas fa-arrow-right ml-1"></i></a>
+      </div>
+    </section>
+
+    <!-- Why Choose Us (light sky background, icons teal) -->
+    <section class="bg-sky py-16 px-4 md:px-8" data-aos="fade-up">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-12">Why Choose Silver Lining?</h2>
+        <div class="grid md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"><i class="fas fa-hand-holding-heart text-3xl text-teal"></i></div>
+            <h3 class="font-bold text-lg text-navy">Pain‑free Care</h3>
+            <p class="text-gray-600 mt-2">Gentle techniques & sedation options for anxious patients.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"><i class="fas fa-microscope text-3xl text-teal"></i></div>
+            <h3 class="font-bold text-lg text-navy">Advanced Technology</h3>
+            <p class="text-gray-600 mt-2">3D imaging, laser dentistry, digital impressions.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"><i class="fas fa-clock text-3xl text-teal"></i></div>
+            <h3 class="font-bold text-lg text-navy">Flexible Hours</h3>
+            <p class="text-gray-600 mt-2">Early mornings, evenings & Saturday appointments.</p>
+          </div>
+          <div class="text-center">
+            <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-sm"><i class="fas fa-file-invoice-dollar text-3xl text-teal"></i></div>
+            <h3 class="font-bold text-lg text-navy">Insurance Accepted</h3>
+            <p class="text-gray-600 mt-2">We work with most PPO plans & offer payment plans.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials with Indian names (light) -->
+    <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
+      <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-4">What Our Patients Say</h2>
+      <p class="text-center text-gray-600 mb-12">Rated 4.9/5 from over 200 reviews</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+          <div class="flex text-yellow-400 mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">“I was so nervous about dental work, but the team made me feel completely at ease. Truly pain‑free!”</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-teal/20 flex items-center justify-center text-navy font-bold">PK</div>
+            <div class="ml-3"><span class="font-semibold">Priya K.</span><span class="text-sm text-gray-500 block">New patient</span></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+          <div class="flex text-yellow-400 mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">“Brought my three kids for check‑ups. The staff is so friendly and patient. Finally a dentist the whole family loves!”</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-teal/20 flex items-center justify-center text-navy font-bold">RM</div>
+            <div class="ml-3"><span class="font-semibold">Rahul M.</span><span class="text-sm text-gray-500 block">Family coordinator</span></div>
+          </div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-md border border-gray-100">
+          <div class="flex text-yellow-400 mb-2">★★★★★</div>
+          <p class="text-gray-700 mb-4">“My Invisalign treatment was faster than expected and the results are amazing. The before/after photos speak for themselves.”</p>
+          <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-teal/20 flex items-center justify-center text-navy font-bold">AS</div>
+            <div class="ml-3"><span class="font-semibold">Ananya S.</span><span class="text-sm text-gray-500 block">Cosmetic patient</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking CTA Banner (light mode: sky background, navy text) -->
+    <section class="bg-sky py-14 px-4" data-aos="zoom-in">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Ready to Smile Confidently?</h2>
+        <p class="text-navy/80 text-lg mb-8">New patients welcome • Same‑day emergency appointments available</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <!-- Book Now button -->
+          <button class="bg-teal hover:bg-teal/80 text-white font-bold py-3 px-8 rounded-full text-lg book-appointment-btn">Book Now</button>
+          <!-- Call Now button with text -->
+          <a href="tel:+917889660188" class="btn-light text-lg"><i class="fas fa-phone-alt mr-2 text-teal"></i>Call Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location & Hours with Jammu address and live map (phone number hidden, only icon) -->
+    <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-3xl font-bold text-navy mb-6">Visit Silver Lining Dental Clinic</h2>
+          <div class="space-y-4 text-gray-700">
+            <p><i class="fas fa-map-marker-alt text-teal w-6 mr-2"></i> Ext 4/A, opposite leather link, Gandhi Nagar, Jammu, Jammu and Kashmir 180004</p>
+            <!-- Phone icon only, no number displayed -->
+            <p><a href="tel:+917889660188" class="text-teal" aria-label="Call us"><i class="fas fa-phone-alt mr-2"></i></a></p>
+            <!-- Email line removed -->
+            <p><i class="fas fa-clock text-teal w-6 mr-2"></i> <strong>Hours:</strong></p>
+            <div class="grid grid-cols-2 gap-2 ml-8">
+              <span>Mon–Thu:</span><span>8am – 6pm</span>
+              <span>Friday:</span><span>8am – 4pm</span>
+              <span>Saturday:</span><span>9am – 2pm</span>
+              <span>Sunday:</span><span>Closed</span>
+            </div>
+            <a href="https://maps.app.goo.gl/jJbLQSHNanQfZGVV9" target="_blank" class="inline-block mt-4 text-teal font-semibold hover:underline"><i class="fas fa-directions mr-1"></i> Get Directions</a>
+          </div>
+        </div>
+        <div class="h-80 md:h-auto rounded-xl overflow-hidden shadow-xl">
+          <iframe src="https://maps.google.com/maps?q=Gandhi%20Nagar%20Jammu&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="text-center mt-6">
+        <a href="https://maps.app.goo.gl/jJbLQSHNanQfZGVV9" target="_blank" class="map-link text-lg"><i class="fas fa-map-marked-alt mr-2"></i>Open in Google Maps App</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with full clinic name and icon-only phone -->
+  <footer class="bg-lightgray text-navy pt-12 pb-6 px-4 md:px-8 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Silver Lining<span class="text-teal"> Dental Clinic</span></h3>
+        <p class="text-gray-600">Gentle, expert dental care in Jammu. Your smile is our priority.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg mb-4 text-navy">Quick Links</h4>
+        <ul class="space-y-2 text-gray-600">
+          <li><a href="#" class="hover:text-teal">Home</a></li>
+          <li><a href="#" class="hover:text-teal">About</a></li>
+          <li><a href="#" class="hover:text-teal">Services</a></li>
+          <li><a href="#" class="hover:text-teal">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg mb-4 text-navy">Services</h4>
+        <ul class="space-y-2 text-gray-600">
+          <li><a href="#" class="hover:text-teal">General Dentistry</a></li>
+          <li><a href="#" class="hover:text-teal">Cosmetic Dentistry</a></li>
+          <li><a href="#" class="hover:text-teal">Orthodontics</a></li>
+          <li><a href="#" class="hover:text-teal">Emergency Care</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-semibold text-lg mb-4 text-navy">Connect</h4>
+        <div class="flex space-x-4 text-2xl">
+          <a href="#" class="hover:text-teal"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="hover:text-teal"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-teal"><i class="fab fa-google"></i></a>
+        </div>
+        <!-- Phone icon only in footer -->
+        <div class="mt-4">
+          <a href="tel:+917889660188" class="text-teal text-xl" aria-label="Call us"><i class="fas fa-phone-alt"></i></a>
+        </div>
+        <p class="mt-4 text-gray-600">© 2026 Silver Lining Dental Clinic. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Mobile CTA with "Call Now" and "Book Now" text -->
+  <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 flex justify-around md:hidden shadow-lg z-50">
+    <a href="tel:+917889660188" class="bg-teal text-white px-4 py-2 rounded-full font-semibold text-sm"><i class="fas fa-phone-alt mr-1"></i>Call Now</a>
+    <button class="bg-teal text-white px-4 py-2 rounded-full font-semibold text-sm book-appointment-btn"><i class="fas fa-calendar-check mr-1"></i>Book Now</button>
+  </div>
+
+  <!-- Floating WhatsApp Button with updated number -->
+  <a href="https://wa.me/917889660188?text=Hello%20I%27d%20like%20to%20know%20more%20about%20your%20dental%20services" target="_blank" class="floating-wa">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Booking Modal with updated doctor's WhatsApp number -->
+  <div id="bookingModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModalBtn">&times;</span>
+      <h3 class="text-2xl font-bold text-navy mb-4">Book Appointment</h3>
+      <p class="text-gray-600 mb-4">Enter your details and we'll connect with you on WhatsApp.</p>
+      <form id="waForm">
+        <div class="mb-4">
+          <label class="block text-navy font-medium mb-1">Your Name</label>
+          <input type="text" id="nameInput" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal">
+        </div>
+        <div class="mb-4">
+          <label class="block text-navy font-medium mb-1">WhatsApp Number</label>
+          <input type="tel" id="waInput" required placeholder="e.g. 9876543210" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal">
+        </div>
+        <button type="submit" class="w-full bg-teal text-white py-3 rounded-lg font-semibold hover:bg-teal/80">Send to Doctor</button>
+      </form>
+      <p class="text-xs text-gray-500 mt-4">We'll forward your details to Dr. via WhatsApp.</p>
+    </div>
+  </div>
+
+  <!-- Cookie consent (simplified) -->
+  <div class="fixed bottom-20 md:bottom-4 left-4 right-4 md:w-96 bg-white shadow-xl rounded-lg p-4 border border-gray-200 flex items-start justify-between z-50">
+    <p class="text-sm text-gray-700">We use cookies. By continuing, you accept our <a href="#" class="text-teal underline">privacy policy</a>.</p>
+    <button class="bg-teal text-white px-4 py-1 rounded-full text-sm">Accept</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    const modal = document.getElementById('bookingModal');
+    const closeBtn = document.getElementById('closeModalBtn');
+    const bookButtons = document.querySelectorAll('.book-appointment-btn');
+    const waForm = document.getElementById('waForm');
+
+    bookButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('show');
+      document.body.style.overflow = 'auto';
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    waForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('nameInput').value.trim();
+      const waNumber = document.getElementById('waInput').value.trim();
+      if (!name || !waNumber) return;
+
+      const message = `New appointment request:%0A Name: ${name}%0A WhatsApp: ${waNumber}`;
+      const doctorWA = '917889660188';
+      const url = `https://wa.me/${doctorWA}?text=${message}`;
+      window.open(url, '_blank');
+
+      waForm.reset();
+      closeModal();
+    });
+  </script>
+</body>
+</html>
