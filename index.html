@@ -13,7 +13,7 @@
   <style>
     :root {
       --navy: #1A5276;
-      --blue: #2C7DA0;      /* New blue accent */
+      --blue: #2C7DA0;
       --sky: #D6EAF8;
       --lightgray: #F2F3F4;
       --charcoal: #1C2833;
@@ -130,7 +130,7 @@
       color: var(--blue);
       font-size: 1.25rem;
     }
-    /* Improved card hover */
+    /* Card hover */
     .service-card, .afford-card {
       transition: transform 0.2s, box-shadow 0.2s;
     }
@@ -142,7 +142,7 @@
 </head>
 <body class="bg-white">
 
-  <!-- Sticky Header (light) with full clinic name - NO call icon -->
+  <!-- Sticky Header -->
   <header class="sticky top-0 z-50 bg-white shadow-md py-3 px-4 md:px-8 flex items-center justify-between">
     <div class="text-2xl font-bold text-navy">Silver Lining<span class="text-blue"> Dental Clinic</span></div>
     <nav class="hidden md:flex space-x-6 text-navy font-medium">
@@ -152,28 +152,23 @@
       <a href="#" class="hover:text-blue">Contact</a>
     </nav>
     <div class="flex items-center space-x-4">
-      <!-- Phone icon removed from header -->
       <button class="btn-primary text-sm md:text-base book-appointment-btn">Book Appointment</button>
       <button class="block md:hidden text-navy text-2xl"><i class="fas fa-bars"></i></button>
     </div>
   </header>
 
   <main>
-    <!-- Hero Section with light gradient & family tagline -->
+    <!-- Hero Section -->
     <section class="relative bg-gradient-to-br from-sky to-white py-16 md:py-24 px-4 md:px-8 overflow-hidden">
       <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div data-aos="fade-right" data-aos-duration="1000" class="space-y-6">
-          <!-- New family tagline -->
           <span class="text-blue font-semibold text-lg">The ideal choice for your family in Jammu</span>
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-navy leading-tight">Your Healthiest Smile <span class="text-blue">Starts Here</span></h1>
           <p class="text-lg md:text-xl text-gray-700">Gentle, expert dental care in Jammu. Same‑day emergency appointments & family‑friendly environment.</p>
           <div class="flex flex-wrap gap-4">
-            <!-- Book Now button -->
             <button class="btn-primary text-base book-appointment-btn">Book Now</button>
-            <!-- Call Now button with text -->
             <a href="tel:+917889660188" class="btn-outline text-base"><i class="fas fa-phone-alt mr-2"></i>Call Now</a>
           </div>
-          <!-- Trust badges -->
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6">
             <div class="text-center"><div class="text-2xl font-bold text-navy">15+</div><div class="text-sm text-gray-600">Years Experience</div></div>
             <div class="text-center"><div class="text-2xl font-bold text-navy">5k+</div><div class="text-sm text-gray-600">Happy Patients</div></div>
@@ -187,12 +182,11 @@
       </div>
     </section>
 
-    <!-- Services Snapshot (light) -->
+    <!-- Services Snapshot -->
     <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
       <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Comprehensive Care for Your Smile</h2>
       <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">From routine check‑ups to complete smile makeovers – we offer a full range of dental services.</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <!-- service cards with blue icons -->
         <div class="service-card bg-white rounded-xl shadow-md p-6 text-center border-t-4 border-blue hover:shadow-lg transition">
           <div class="text-4xl text-blue mb-3"><i class="fas fa-tooth"></i></div>
           <h3 class="font-bold text-lg text-navy">General Dentistry</h3>
@@ -219,7 +213,7 @@
       </div>
     </section>
 
-    <!-- Why Choose Us (light sky background, icons blue) with bilingual addition -->
+    <!-- Why Choose Us -->
     <section class="bg-sky py-16 px-4 md:px-8" data-aos="fade-up">
       <div class="max-w-7xl mx-auto">
         <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-12">Why Choose Silver Lining?</h2>
@@ -245,14 +239,28 @@
             <p class="text-gray-600 mt-2">We work with most PPO plans & offer payment plans.</p>
           </div>
         </div>
-        <!-- New bilingual message -->
         <div class="text-center mt-8 text-navy font-medium">
           <p><i class="fas fa-language text-blue mr-2"></i> We speak English, Hindi & Dogri — siempre bienvenidos</p>
         </div>
       </div>
     </section>
 
-    <!-- Affordable Care Section (no prices) -->
+    <!-- About Us Section with Image -->
+    <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-navy mb-6">About Silver Lining</h2>
+          <p class="text-gray-700 mb-4">For over 15 years, Silver Lining Dental Clinic has been the trusted choice for families in Jammu. We believe in a gentle, personalized approach that makes every visit comfortable and stress‑free.</p>
+          <p class="text-gray-700 mb-4">Our team stays at the forefront of dental technology to provide you with the best care possible — from digital X‑rays to laser dentistry. But more than that, we treat you like family.</p>
+          <p class="text-gray-700">Whether you need a routine cleaning or a complete smile makeover, we're here to help you achieve your healthiest smile.</p>
+        </div>
+        <div class="relative h-80 md:h-96">
+          <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Our dental clinic team" class="rounded-2xl shadow-xl object-cover w-full h-full">
+        </div>
+      </div>
+    </section>
+
+    <!-- Affordable Care Section -->
     <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
       <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-4">Designed to fit your budget</h2>
       <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">Quality dental care that's accessible and transparent. We help you smile without financial stress.</p>
@@ -277,7 +285,7 @@
       <p class="text-center mt-8 text-gray-600">No insurance? Ask about our in-house membership plan for additional savings.</p>
     </section>
 
-    <!-- Testimonials with Indian names (light) -->
+    <!-- Testimonials -->
     <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
       <h2 class="text-3xl md:text-4xl font-bold text-navy text-center mb-4">What Our Patients Say</h2>
       <p class="text-center text-gray-600 mb-12">Rated 4.9/5 from over 200 reviews</p>
@@ -343,30 +351,26 @@
       </div>
     </section>
 
-    <!-- Booking CTA Banner (sky background, navy text) with updated button text -->
+    <!-- Booking CTA Banner -->
     <section class="bg-sky py-14 px-4" data-aos="zoom-in">
       <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-navy mb-4">Ready to Smile Confidently?</h2>
         <p class="text-navy/80 text-lg mb-8">New patients welcome • Same‑day emergency appointments available</p>
         <div class="flex flex-wrap justify-center gap-4">
-          <!-- Changed to "Find Available Appointments" -->
           <button class="bg-blue hover:bg-blue/80 text-white font-bold py-3 px-8 rounded-full text-lg book-appointment-btn">Find Available Appointments</button>
-          <!-- Call Now button with text -->
           <a href="tel:+917889660188" class="btn-light text-lg"><i class="fas fa-phone-alt mr-2 text-blue"></i>Call Now</a>
         </div>
       </div>
     </section>
 
-    <!-- Location & Hours with Jammu address and live map (phone number hidden, only icon) -->
+    <!-- Location & Hours -->
     <section class="py-16 px-4 md:px-8 max-w-7xl mx-auto" data-aos="fade-up">
       <div class="grid md:grid-cols-2 gap-12">
         <div>
           <h2 class="text-3xl font-bold text-navy mb-6">Visit Silver Lining Dental Clinic</h2>
           <div class="space-y-4 text-gray-700">
             <p><i class="fas fa-map-marker-alt text-blue w-6 mr-2"></i> Ext 4/A, opposite leather link, Gandhi Nagar, Jammu, Jammu and Kashmir 180004</p>
-            <!-- Phone icon only, no number displayed -->
             <p><a href="tel:+917889660188" class="text-blue" aria-label="Call us"><i class="fas fa-phone-alt mr-2"></i></a></p>
-            <!-- Email line removed -->
             <p><i class="fas fa-clock text-blue w-6 mr-2"></i> <strong>Hours:</strong></p>
             <div class="grid grid-cols-2 gap-2 ml-8">
               <span>Mon–Thu:</span><span>8am – 6pm</span>
@@ -387,7 +391,7 @@
     </section>
   </main>
 
-  <!-- Footer with full clinic name and icon-only phone -->
+  <!-- Footer -->
   <footer class="bg-lightgray text-navy pt-12 pb-6 px-4 md:px-8 border-t border-gray-200">
     <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
       <div>
@@ -419,7 +423,6 @@
           <a href="#" class="hover:text-blue"><i class="fab fa-instagram"></i></a>
           <a href="#" class="hover:text-blue"><i class="fab fa-google"></i></a>
         </div>
-        <!-- Phone icon only in footer -->
         <div class="mt-4">
           <a href="tel:+917889660188" class="text-blue text-xl" aria-label="Call us"><i class="fas fa-phone-alt"></i></a>
         </div>
@@ -428,18 +431,18 @@
     </div>
   </footer>
 
-  <!-- Floating Mobile CTA with "Call Now" and "Book Now" text -->
+  <!-- Floating Mobile CTA -->
   <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-3 flex justify-around md:hidden shadow-lg z-50">
     <a href="tel:+917889660188" class="bg-blue text-white px-4 py-2 rounded-full font-semibold text-sm"><i class="fas fa-phone-alt mr-1"></i>Call Now</a>
     <button class="bg-blue text-white px-4 py-2 rounded-full font-semibold text-sm book-appointment-btn"><i class="fas fa-calendar-check mr-1"></i>Book Now</button>
   </div>
 
-  <!-- Floating WhatsApp Button with updated number (kept green per brand) -->
+  <!-- Floating WhatsApp Button -->
   <a href="https://wa.me/917889660188?text=Hello%20I%27d%20like%20to%20know%20more%20about%20your%20dental%20services" target="_blank" class="floating-wa">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Booking Modal with updated doctor's WhatsApp number -->
+  <!-- Booking Modal -->
   <div id="bookingModal">
     <div class="modal-content">
       <span class="close-modal" id="closeModalBtn">&times;</span>
@@ -460,17 +463,11 @@
     </div>
   </div>
 
-  <!-- Cookie consent (simplified) -->
-  <div class="fixed bottom-20 md:bottom-4 left-4 right-4 md:w-96 bg-white shadow-xl rounded-lg p-4 border border-gray-200 flex items-start justify-between z-50">
-    <!-- (cookie content unchanged) -->
-  </div>
-
-  <!-- AOS and modal scripts -->
+  <!-- AOS and scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once: true, offset: 50 });
 
-    // Modal functionality
     const modal = document.getElementById('bookingModal');
     const bookBtns = document.querySelectorAll('.book-appointment-btn');
     const closeBtn = document.getElementById('closeModalBtn');
@@ -493,7 +490,6 @@
       });
     });
 
-    // WhatsApp form submission (prevent default and redirect)
     document.getElementById('waForm').addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('nameInput').value.trim();
